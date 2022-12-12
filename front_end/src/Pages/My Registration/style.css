@@ -25,3 +25,10 @@
 .events-details{
     margin-top: .5rem;
 }
+
+.pop{
+    margin: 2.5vw 1.5vh;
+    border-radius: 1vh;
+    background-color: rgb(151, 197, 197);
+    color: rgb(39, 38, 37);
+}

@@ -12,6 +12,8 @@ const MyRegistration = () => {
     const [z,setZ] = useState([]);
     const user = localStorage.getItem('user');
     const user_id = localStorage.getItem('user_id');
+    const [flg,setFlg] = useState(false);
+    const [mssg,setMssg] = useState("");
     
     const navigate = useNavigate();
 
@@ -35,6 +37,12 @@ const MyRegistration = () => {
         try{
             await api.post(`/registration/${event}/approvals`,{},{headers:{user_id:user_id,user:user}});          
             console.log("Subscription accepted successfully !");
+            setFlg(true);
+            setMssg("Accepted Succesfully");
+            setTimeout(()=>{
+                setFlg(false);
+                setMssg("");
+            },4000);
         }
         catch(err){
             console.log(err);
@@ -45,6 +53,12 @@ const MyRegistration = () => {
         try{
             await api.post(`/registration/${event}/rejections`,{},{headers:{user_id:user_id,user:user}});
             console.log("Subscription recjected successfully !");
+            setFlg(true);
+            setMssg("Rejected Succesfully");
+            setTimeout(()=>{
+                setFlg(false);
+                setMssg("");
+            },4000);
         }
         catch(err){
             console.log(err);
@@ -61,6 +75,9 @@ const MyRegistration = () => {
 
     return (
         <>
+            {flg? (
+                    <Alert color="danger" className="pop">{mssg}</Alert>
+                ):""}
             <hr/>
             <UncontrolledDropdown group>
                 <Button color="warning">
