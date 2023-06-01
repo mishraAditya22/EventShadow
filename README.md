@@ -2,6 +2,7 @@
 # SubScripzz
 
 It's a web-application that can be used as an Subscription Purchasing application for users control options .
+Built over React.js for Client-Side and By Node.js/Express.js for Server-side by using MongoDb as DataBase
 
 ## Deployment
 
